@@ -15,7 +15,7 @@ export async function* afstream(path: FileHandle | PathLike, options?: FileStrea
 
   const bufferLimit = options.bufferLimit || 0;
   const terminator = options.terminator || '\n';
-  const includeTerminator = typeof options.includeTerminator === 'boolean' ? options.includeTerminator : true;
+  const includeTerminator = typeof options.includeTerminator === 'boolean' ? options.includeTerminator : false;
   const transform = options.transform || (async (e) => e);
   const flags = options.flags || 'r';
   let bufferSize = options.bufferSize || 0;
