@@ -10,6 +10,11 @@ type FileStreamOptions = {
   transform?: (e: Buffer) => Promise<any>;
 };
 
+/**
+ * @param {FileHandle|PathLike} path
+ * @param {FileStreamOptions} options
+ * @return {AsyncGenerator<Buffer>}
+ */
 export async function* afstream(path: FileHandle | PathLike, options?: FileStreamOptions): AsyncGenerator<Buffer> {
   options = options || {};
 
