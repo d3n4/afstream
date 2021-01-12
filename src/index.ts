@@ -6,6 +6,7 @@ type FileStreamOptions = {
   bufferLimit?: number,
   flags?: string,
   terminator?: string | Buffer,
+  includeTerminator?: boolean,
   transform?: (e: Buffer) => Promise<any>,
 };
 
@@ -15,6 +16,7 @@ export async function* afstream(path: FileHandle | PathLike, options?: FileStrea
 
   const bufferLimit = options.bufferLimit || 0;
   const terminator = options.terminator || '\n';
+  const includeTerminator = options.includeTerminator || false;
   const transform = options.transform || (async e => e);
   const flags = options.flags || 'r';
   let bufferSize = options.bufferSize || 0;
@@ -58,7 +60,7 @@ export async function* afstream(path: FileHandle | PathLike, options?: FileStrea
 
     let terminatorIndex;
     while ((terminatorIndex = buffer.indexOf(terminatorBuffer)) > -1) {
-      yield await transform(buffer.slice(0, terminatorIndex));
+      yield await transform(buffer.slice(0, (terminatorIndex - (includeTerminator ? 0 : terminatorBuffer.byteLength))));
       buffer = buffer.slice(terminatorIndex + terminatorBuffer.byteLength);
     }
   }
