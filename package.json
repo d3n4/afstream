@@ -1,7 +1,7 @@
 {
     "name": "afstream",
     "author": "d3n4",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "",
     "keywords": [
         "file streamed reader"
