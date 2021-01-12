@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "lib": [
+            "es2020",
+            "es2015",
+            "es6"
+        ],
+        "allowJs": true,
+        "declaration": true,
+        "declarationMap": false,
+        "sourceMap": false,
+        "removeComments": true,
+        "downlevelIteration": true,
+        "strict": false,
+        "noImplicitUseStrict": true,
+        "alwaysStrict": false,
+        "typeRoots": [
+        ],
+        "types": [
+            "@types/node",
+            "@types/jest",
+        ],
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./lib"
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/__tests__/*"
+    ]
+}
